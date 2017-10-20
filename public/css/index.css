@@ -9,3 +9,7 @@
     position: relative;
     top: calc(50vh - 100px);
   }
+
+.song-list {
+  padding: 10px;
+}
