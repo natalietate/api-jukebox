@@ -24,6 +24,7 @@ body {
 .intro-text h2 {
   font-family: 'Lato', sans-serif;
 }
+
 .jukebox {
   text-align: center;
   position: relative;
@@ -33,7 +34,6 @@ body {
   padding: 10px;
   font-family: 'Lato', cursive;
   text-decoration: none;
-
 }
 
 .controls {
@@ -41,15 +41,12 @@ body {
 }
 
 .btn {
-  /*padding: 10px;
-  border-radius: 8px;
-  background-color: #09384f;*/
   padding-left: 10px;
   padding-right: 10px
 }
 
 a.btn {
-  text-decoration: none;
+  cursor: pointer;
 }
 
 a.btn:hover {
@@ -62,10 +59,15 @@ a.currently-playing {
 
 .parallax {
   background-image: url("../img/tim-goedhart.jpg");
-  /*Photo by Tim Goedhart ()@nofilter_noglory) on Unsplash*/
-  height: 700px;
+  /*Photo by Tim Goedhart (@nofilter_noglory) on Unsplash*/
+  height: 650px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+a:not(.btn) {
+  text-decoration: none;
+  color: #7A7F49;
 }
