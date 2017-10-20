@@ -1,60 +1,90 @@
 // all of your code needs to be inside this ENV function
-// variables for dubugging purposes
-// var track;
-// var trackList;
-// var soundCloud;
 
+// (function(ENV) {
 
-(function(ENV) {
-  const client_id = ENV.client_id;
-  SC.initialize({
-    client_id: client_id
-  });
+const client_id = ENV.client_id;
+SC.initialize({
+  client_id: client_id
+});
 
-  // Remember, tracks are returned as an array
-  SC.get('/tracks', {
-    q: 'smooth jazz',
-  }).then(function(tracks) {
-    let firstTrack = tracks[0];
-    let secondTrack = tracks[1];
+i = 0
 
-    SC.stream('/tracks/' + firstTrack.id).then(function(player) {
-      let play = document.querySelector('#play');
-      let pause = document.querySelector('#pause');
-      let stop = document.querySelector('#stop');
+SC.get('/tracks', {
+  q: 'summer',
+}).then(function(tracks) {
 
-      function playSong() {
+  console.log(tracks);
+  // let firstTrack = tracks[0];
+
+  // begin streaming first track on list
+  SC.stream('/tracks/' + tracks[i].id).then(function(player) {
+
+    function playSong() {
+      player.play()
+      currentlyPlaying.innerHTML = "Now playing: " + tracks[i].title + " uploaded by " + tracks[i].user.username
+      artwork.innerHTML = "<img src=" + tracks[i].artwork_url + ">";
+    }
+
+    function pauseSong() {
+      player.pause()
+    }
+
+    function nextSong() {
+      i++
+      SC.stream('/tracks/' + tracks[i].id).then(function(player) {
+        console.log(tracks[i].id)
+        currentlyPlaying.innerHTML = "Now playing: " + tracks[i].title + " uploaded by " + tracks[i].user.username
+        artwork.innerHTML = "<img src=" + tracks[i].artwork_url + ">";
         player.play()
-        document.querySelector('.currently-playing').innerHTML = "Now playing: " + firstTrack.title + " by " + firstTrack.artist
-      }
+        pause.addEventListener('click', function() {
+          player.pause()
+        });
+      });
+    }
 
-      function pauseSong() {
-        player.pause()
-      }
+    let play = document.querySelector('#play');
+    let pause = document.querySelector('#pause');
+    let next = document.querySelector('#next');
+    let currentlyPlaying = document.querySelector('.currently-playing')
+    let artwork = document.querySelector('.artwork');
+    play.addEventListener('click', playSong);
+    pause.addEventListener('click', pauseSong);
+    next.addEventListener('click', nextSong)
 
-      play.addEventListener('click', playSong);
-      pause.addEventListener('click', pauseSong);
-    });
 
-    SC.stream('/tracks/' + secondTrack.id).then(function(player) {
-      let one = document.querySelector('#one');
-      let pause = document.querySelector('#pause');
-
-      function playSong() {
-        player.play()
-        document.querySelector('.currently-playing').innerHTML = "Now playing: " + secondTrack.title + " by " + secondTrack.artist
-      }
-
-      function pauseSong() {
-        player.pause()
-      }
-
-      one.addEventListener('click', playSong);
-      pause.addEventListener('click', pauseSong);
-
-    });
   });
+});
+
+
+// })(ENV)
 
 
 
-})(ENV)
+
+// function nextSong() {
+//   let currentTrack = 0;
+//
+//   if (tracks.indexOf(currentTrack) < tracks.length) {
+//     console.log(tracks)
+//     let nextTrack = tracks[1]
+//     SC.stream('/tracks/' + nextTrack.id).then(function(player) {
+//       player.play()
+//       pause.addEventListener('click', function() {
+//         player.pause()
+//       });
+//     });
+//   }
+// }
+
+// function nextSong() {
+//   for (var x = 0; x < tracks.length - 1; x++) {
+//     tracks[x].id + 1
+//     console.log(tracks[x].id)
+//     SC.stream('/tracks/' + tracks[x].id).then(function(player) {
+//       player.play()
+//       pause.addEventListener('click', function() {
+//         player.pause()
+//       });
+//     });
+//   };
+// }
