@@ -40,12 +40,13 @@
         artwork.innerHTML = "<img src=" + tracks[i].artwork_url + ">";
         info.innerHTML = "Genre: " + tracks[i].genre
       }
-      play = document.querySelector('#play');
-      pause = document.querySelector('#pause');
-      next = document.querySelector('#next');
-      currentlyPlaying = document.querySelector('.currently-playing');
-      artwork = document.querySelector('.artwork');
-      info = document.querySelector('.track-info');
+
+      let play = document.querySelector('#play');
+      let pause = document.querySelector('#pause');
+      let next = document.querySelector('#next');
+      let currentlyPlaying = document.querySelector('.currently-playing');
+      let artwork = document.querySelector('.artwork');
+      let info = document.querySelector('.track-info');
       play.addEventListener('click', playSong);
       pause.addEventListener('click', pauseSong);
       next.addEventListener('click', nextSong)
