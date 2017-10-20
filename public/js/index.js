@@ -1,6 +1,5 @@
-// all of your code needs to be inside this ENV function
 
-// (function(ENV) {
+ (function(ENV) {
 
 const client_id = ENV.client_id;
 SC.initialize({
@@ -12,9 +11,7 @@ i = 0
 SC.get('/tracks', {
   q: 'summer',
 }).then(function(tracks) {
-
   console.log(tracks);
-  // let firstTrack = tracks[0];
 
   // begin streaming first track on list
   SC.stream('/tracks/' + tracks[i].id).then(function(player) {
@@ -56,35 +53,4 @@ SC.get('/tracks', {
 });
 
 
-// })(ENV)
-
-
-
-
-// function nextSong() {
-//   let currentTrack = 0;
-//
-//   if (tracks.indexOf(currentTrack) < tracks.length) {
-//     console.log(tracks)
-//     let nextTrack = tracks[1]
-//     SC.stream('/tracks/' + nextTrack.id).then(function(player) {
-//       player.play()
-//       pause.addEventListener('click', function() {
-//         player.pause()
-//       });
-//     });
-//   }
-// }
-
-// function nextSong() {
-//   for (var x = 0; x < tracks.length - 1; x++) {
-//     tracks[x].id + 1
-//     console.log(tracks[x].id)
-//     SC.stream('/tracks/' + tracks[x].id).then(function(player) {
-//       player.play()
-//       pause.addEventListener('click', function() {
-//         player.pause()
-//       });
-//     });
-//   };
-// }
+})(ENV)
