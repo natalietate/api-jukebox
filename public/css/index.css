@@ -4,10 +4,14 @@
     background-color: rgba(0,0,0,0.1);
   }
 
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
   .jukebox {
     text-align: center;
     position: relative;
-    top: calc(50vh - 100px);
+
   }
 
 .song-list {
