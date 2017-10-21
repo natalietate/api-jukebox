@@ -1,15 +1,78 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    background-color: rgba(0,0,0,0.1);
-  }
+  box-sizing: border-box;
+  margin: 0;
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+}
 
-  .jukebox {
-    text-align: center;
-    position: relative;
-    top: calc(50vh - 100px);
-  }
+body {
+  padding-bottom: 200px;
+  background-color: #261120;
+  color: #fdfdfd;
+}
 
-.song-list {
+.main {
+  max-width: 60vw;
+margin: 0 auto;
+}
+
+.intro-text {
+  text-align: center;
+  margin: 40px;
+  padding: 20px;
+}
+
+.intro-text h1 {
+  font-family: 'Concert One', cursive;
+
+}
+
+.intro-text h2 {
+  font-family: 'Lato', sans-serif;
+}
+
+.jukebox {
+  text-align: center;
+  position: relative;
+}
+
+.currently-playing, .track-info {
   padding: 10px;
+  font-family: 'Lato', cursive;
+  text-decoration: none;
+}
+
+.controls {
+  padding: 10px;
+}
+
+.btn {
+  padding-left: 10px;
+  padding-right: 10px
+}
+
+a.btn {
+  cursor: pointer;
+}
+
+a.btn:hover {
+  color: #7A7F49;
+}
+
+a.currently-playing {
+  text-decoration: none;
+}
+
+.parallax {
+  background-image: url("../img/tim-goedhart.jpg");
+  /*Photo by Tim Goedhart (@nofilter_noglory) on Unsplash*/
+  height: 650px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a:not(.btn) {
+  text-decoration: none;
+  color: #7A7F49;
 }

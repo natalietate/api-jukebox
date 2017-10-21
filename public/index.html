@@ -4,25 +4,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Soundcloud Jukebox</title>
+  <title>Re-Energize Your Day</title>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <script src="https://use.fontawesome.com/3310f0dd0d.js"></script>
+
 </head>
 
 <body>
-  <div class="jukebox">
-    <!-- <h1> Header </h1> -->
-    <div class="currently-playing">
-      <h2> Press Play...</h2>
-      <br><br>
+
+  <div class="intro parallax"></div>
+  <div class="main">
+    <div class="intro-text">
+      <h1> Feeling tired? </h1>
+      <h2> Forget the extra cup of coffee, listen to this re-energizing playlist instead.</h2>
     </div>
-    <div class="controls">
-      <button class="btn" id="play">Play</button>
-      <button class="btn" id="pause">Pause</button>
-      <button class="btn" id="next">Next</button>
+    <div class="jukebox">
+      <div class="photo"></div>
+      <div class="artwork"></div>
+      <div class="currently-playing">
+        <h2> Press Play...</h2>
+      </div>
+      <div class="track-info"></div>
+      <div class="controls">
+        <a class="btn" id="play"><i class="fa fa-play fa-3x"></i></a>
+        <a class="btn" id="pause"><i class="fa fa-pause fa-3x"></i></a>
+        <a class="btn" id="next"><i class="fa fa-step-forward fa-3x"></i></a>
+      </div>
     </div>
-<div class ="artwork">
-</div>
   </div>
 
   <!-- JavaScripts -->
