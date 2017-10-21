@@ -1,18 +1,23 @@
+// for security purposes, everything lives inside of this function
 (function(ENV) {
 
+//initialize soundcloud
   const client_id = ENV.client_id;
   SC.initialize({
     client_id: client_id
   });
 
-  i = 0
+  // set current track to 0
+  trNum = 0
 
+  // get songs from SC
   SC.get('/tracks', {
     q: 'summer',
   }).then(function(tracks) {
-    console.log(tracks);
+    // console.log(tracks);
 
-    SC.stream('/tracks/' + tracks[i].id).then(function(player) {
+    // song playback
+    SC.stream('/tracks/' + tracks[trNum].id).then(function(player) {
 
       function playSong() {
         player.play()
@@ -24,9 +29,9 @@
       }
 
       function nextSong() {
-        i++
-        SC.stream('/tracks/' + tracks[i].id).then(function(player) {
-          console.log(tracks[i].id)
+        trNum++
+        SC.stream('/tracks/' + tracks[trNum].id).then(function(player) {
+          // console.log(tracks[trNum].id)
           setInfo();
           player.play();
           pause.addEventListener('click', function() {
@@ -34,13 +39,15 @@
           });
         });
       }
-
+      
+      // to be displayed with each song (I know, this is super clunky)
       function setInfo() {
-        currentlyPlaying.innerHTML = "Now playing: <a href=" + tracks[i].permalink_url + ">" + tracks[i].title + " </a> uploaded by <a href=" + tracks[i].user.permalink_url + ">" + tracks[i].user.username + "</a>"
-        artwork.innerHTML = "<img src=" + tracks[i].artwork_url + ">";
-        info.innerHTML = "Genre: " + tracks[i].genre
+        currentlyPlaying.innerHTML = "Now playing: <a href=" + tracks[trNum].permalink_url + ">" + tracks[trNum].title + " </a> uploaded by <a href=" + tracks[trNum].user.permalink_url + ">" + tracks[trNum].user.username + "</a>"
+        artwork.innerHTML = "<img src=" + tracks[trNum].artwork_url + ">";
+        info.innerHTML =  tracks[trNum].genre + tracks[trNum].description
       }
 
+      // setting up variables and event listeners
       let play = document.querySelector('#play');
       let pause = document.querySelector('#pause');
       let next = document.querySelector('#next');
