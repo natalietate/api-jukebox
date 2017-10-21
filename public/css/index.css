@@ -10,6 +10,11 @@ body {
   color: #fdfdfd;
 }
 
+.main {
+  max-width: 60vw;
+margin: 0 auto;
+}
+
 .intro-text {
   text-align: center;
   margin: 40px;
