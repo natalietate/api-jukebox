@@ -12,13 +12,15 @@ body {
 
 .main {
   max-width: 60vw;
-margin: 0 auto;
+  margin: 0 auto;
+
 }
 
 .intro-text {
   text-align: center;
   margin: 40px;
   padding: 20px;
+  border: 1px dashed white
 }
 
 .intro-text h1 {
